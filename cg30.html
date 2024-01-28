@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<!--
+  단축 속성명
+  변수가 미리 준비되어 있는 경우
+  속성의 키와 값을 한번에 정의할 수 있다
+-->
+
+<script>
+  let address = "seoul";
+  let members = {};
+  let addFamily = function(role, name, age){
+    this.members[role] = {name, age};
+  };
+  let countFamily = function(){
+    return Object.keys(this.members).length;
+  }
+
+  let family = {address, members, addFamily, countFamily};
+
+  family.addFamily("father", "김아빠", 40);
+  family.addFamily("mother", "이엄마", 40);
+  family.addFamily("dog", "최개개", 3);
+  console.log(family.countFamily());
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+  console.log(Symbol()===Symbol());
+  console.log(Symbol("hello")==Symbol("hello"));
+
+  let users = {
+    members : {},
+    addUser : function(name, age, city){
+      this.members[name] = {age, city}
+    },
+    printUser : function(){
+      for(name in this.members){
+        console.log(`${name}님의 나이는 ${this.members[name].age}세이고, 사는 곳은 ${this.members[name].city}입니다`);
+      }
+    }
+  };
+
+  users.addUser("박수진", 30, "고양시");
+  users.addUser("김고순", 4, "도치시");
+  users.addUser("강바늘", 1, "밀웜시");
+  users.printUser();
+
+  let student = {
+    name : "박일등",
+    [Symbol()] : "우등생"
+  }
+  
+  console.log(Object.keys(student));
+  console.log(Object.getOwnPropertyNames(student));
+  console.log(JSON.stringify(student));
+
+  symbolProperties = Object.getOwnPropertySymbols(student);
+  console.log(student[symbolProperties[0]]);
+  console.log(student);
+</script>

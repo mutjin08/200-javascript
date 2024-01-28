@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<!--
+  속성 계산명(computed property name)
+  대괄호에 식을 넣거나 변수를 대입하여 동적으로 객체 속성들을 생성할 수 있다
+-->
+<script>
+  let obj = {};
+  for(i=0;i<4;i++){
+    obj["key"+i] = i;
+  }
+  console.log(obj);
+
+  let profile1 = "sujin:20";
+  let profile2 = "gosoon:3";
+  let persons = {
+    [profile1.split(":")[0]] : profile1.split(":")[1],
+    [profile2.split(":")[0]] : profile2.split(":")[1],
+  };
+  console.log(persons);
+</script>
