@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<!--
+this.members는 객체이고 배열이 아니기 때문에 length 속성을 사용할 수 없습니다.
+해결 방법으로는 Object.keys(this.members).length를 사용하여 객체의 속성 개수를 얻을 수 있습니다.
+-->
+
+<script>
+  let family = {
+    address : "seoul",
+    members : {},
+    addFamily : function(role, age, name){
+      this.members[role] = {
+        name : name,
+        age : age
+      }
+    },
+    getHeadcount : function(){
+      return Object.keys(this.members).length;
+    }
+  };
+
+  family.addFamily("father", 20, "김아빠");
+  family.addFamily("mother", 21, "최엄마");
+  family.addFamily("son", 10, "박아들");
+
+  console.log(family.getHeadcount());
+</script>
